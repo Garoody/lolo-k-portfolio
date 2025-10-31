@@ -1,0 +1,238 @@
+/* Polices locales (adapter les fichiers si noms différents)  */
+
+@font-face {
+    font-family: "hardRock";
+    src: url("../fonts/HARD_ROCK.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Rock";
+    src: url("../fonts/rocknroll_typo_crazy.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+@font-face {
+    font-family: "theRock";
+    src: url("../fonts/TheDark.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+
+
+
+
+:root {
+    --brand-bg: #2daf43;
+    --accent: white;
+    --muted: #e6e6e6;
+}
+
+body {
+
+    font-family: "Compagnie", Arial, sans-serif;
+    color: var(--muted);
+    background: linear-gradient(to bottom right,
+
+            Black 22%,
+            red 22% 40%,
+
+            Black 40% 75%,
+            red 75%);
+
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(180deg, #382c2c, #130909);
+    box-shadow: 0 2px 8px rgba(211, 14, 14, 0.6);
+    font-family: "theRock", sans-serif;
+}
+
+.navbar-brand {
+    font-family: "theRock", sans-serif;
+    letter-spacing: 1px;
+    color: rgb(202, 188, 188);
+}
+
+
+:target:before {
+    content: "";
+    display: block;
+    height: 80px;
+    /* hauteur de la navbar */
+    margin-top: -80px;
+    visibility: hidden;
+}
+
+/* Carousel image styling */
+.carousel-item img {
+    object-fit: cover;
+    height: 70vh;
+    min-height: 320px;
+}
+
+/* Sections common */
+section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    font-family: "theRock", sans-serif;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+/* Membres: flexbox layout with figures */
+.members-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.member {
+    background: linear-gradient(180deg, rgba(182, 161, 161, 0.03), rgba(255, 255, 255, 0.01));
+    border-radius: 12px;
+    padding: 0.75rem;
+    width: 220px;
+    text-align: center;
+}
+
+.member img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.member figcaption {
+    margin-top: 0.6rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Discographie cards */
+.disc-card {
+    background: linear-gradient(180deg, white, );
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+button {
+    font-family: "Rock", sans-serif !important;
+}
+
+.disc-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Agenda table */
+.table thead th {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+}
+
+.table tbody tr:hover {
+    background: rgba(217, 160, 0, 0.06);
+}
+
+/* Footer / contact */
+footer {
+    padding: 2rem 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive tweaks */
+@media (max-width: 767px) {
+    .carousel-item img {
+        height: 45vh;
+    }
+
+    .member {
+        width: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    .member {
+        width: 100%;
+    }
+
+    .carousel-item img {
+        height: 35vh;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
