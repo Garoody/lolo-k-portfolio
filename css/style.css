@@ -1,238 +1,961 @@
-/* Polices locales (adapter les fichiers si noms différents)  */
-
-@font-face {
-    font-family: "hardRock";
-    src: url("../fonts/HARD_ROCK.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Rock";
-    src: url("../fonts/rocknroll_typo_crazy.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-
-
-@font-face {
-    font-family: "theRock";
-    src: url("../fonts/TheDark.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-
-
-
-
-
-
-
 :root {
-    --brand-bg: #2daf43;
-    --accent: white;
-    --muted: #e6e6e6;
+    --navbar-height: 65px;
+    --page-bg: #fbf9fe;
+    --surface: rgba(255, 255, 255, 0.94);
+    --surface-strong: #ffffff;
+    --text: #251c32;
+    --muted: #625c6d;
+    --gold: #8c5f16;
+    --gold-soft: #70480b;
+    --violet: #7143bd;
+    --border: rgba(113, 67, 189, 0.22);
 }
 
-body {
+* {
+    box-sizing: border-box;
+}
 
-    font-family: "Compagnie", Arial, sans-serif;
-    color: var(--muted);
-    background: linear-gradient(to bottom right,
-
-            Black 22%,
-            red 22% 40%,
-
-            Black 40% 75%,
-            red 75%);
-
+html {
     scroll-behavior: smooth;
 }
 
-/* Navbar */
+body {
+    min-height: 100vh;
+    padding-top: var(--navbar-height);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(115, 67, 189, 0.15), transparent 30rem),
+        radial-gradient(circle at 100% 30%, rgba(202, 155, 57, 0.13), transparent 28rem),
+        var(--page-bg);
+}
+
+.skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 1100;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    background: var(--violet);
+    box-shadow: 0 0.5rem 1rem rgba(45, 30, 60, 0.18);
+    transform: translateY(-160%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
 .navbar {
-    background: linear-gradient(180deg, #382c2c, #130909);
-    box-shadow: 0 2px 8px rgba(211, 14, 14, 0.6);
-    font-family: "theRock", sans-serif;
+    min-height: var(--navbar-height);
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid rgba(113, 67, 189, 0.17);
+    box-shadow: 0 0.5rem 1.5rem rgba(45, 30, 60, 0.1);
+    backdrop-filter: blur(14px);
 }
 
 .navbar-brand {
-    font-family: "theRock", sans-serif;
-    letter-spacing: 1px;
-    color: rgb(202, 188, 188);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--gold) !important;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    white-space: nowrap;
 }
 
-
-:target:before {
-    content: "";
-    display: block;
-    height: 80px;
-    /* hauteur de la navbar */
-    margin-top: -80px;
-    visibility: hidden;
-}
-
-/* Carousel image styling */
-.carousel-item img {
+.navbar-brand-visual {
+    flex: 0 0 2rem;
+    width: 2rem;
+    height: 2rem;
     object-fit: cover;
-    height: 70vh;
-    min-height: 320px;
+    border: 1px solid rgba(140, 95, 22, 0.35);
+    border-radius: 0.65rem;
+    box-shadow: 0 0.3rem 0.8rem rgba(69, 41, 109, 0.22);
 }
 
-/* Sections common */
-section {
-    padding: 4rem 0;
-}
-
-.section-title {
-    font-family: "theRock", sans-serif;
-    color: var(--accent);
-    letter-spacing: 1px;
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-}
-
-/* Membres: flexbox layout with figures */
-.members-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-    justify-content: center;
-    align-items: stretch;
-}
-
-.member {
-    background: linear-gradient(180deg, rgba(182, 161, 161, 0.03), rgba(255, 255, 255, 0.01));
-    border-radius: 12px;
-    padding: 0.75rem;
-    width: 220px;
-    text-align: center;
-}
-
-.member img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 8px;
-    display: block;
-}
-
-.member figcaption {
-    margin-top: 0.6rem;
-    color: #fff;
+.navbar .nav-link {
+    color: var(--muted);
     font-weight: 600;
 }
 
-/* Discographie cards */
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+    color: var(--gold-soft);
+}
+
+.hero-container {
+    width: min(100%, 1440px);
+    margin: 0 auto;
+}
+
+.carousel {
+    overflow: hidden;
+}
+
+.carousel-item picture {
+    display: block;
+}
+
+.carousel-item img {
+    height: clamp(25rem, 64vh, 47.5rem);
+    object-fit: cover;
+}
+
+.hero-caption {
+    right: auto;
+    bottom: clamp(1.5rem, 6vw, 4rem);
+    left: clamp(1.5rem, 7vw, 6rem);
+    width: min(28rem, 62%);
+    color: #fff;
+    text-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.85);
+}
+
+.hero-caption .section-eyebrow {
+    color: #f7dc91;
+}
+
+.hero-caption--right {
+    right: clamp(1.5rem, 7vw, 6rem);
+    left: auto;
+    margin-left: auto;
+}
+
+.hero-caption h1,
+.hero-caption h2 {
+    margin-bottom: 0.75rem;
+    color: #fff;
+    font-size: clamp(2.25rem, 6vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+}
+
+.hero-caption h2 {
+    font-size: clamp(1.75rem, 3.7vw, 3.3rem);
+}
+
+.hero-caption p:last-child {
+    margin-bottom: 0;
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+}
+
+section {
+    padding: 4.5rem 0;
+}
+
+section[id] {
+    scroll-margin-top: calc(var(--navbar-height) + 1rem);
+}
+
+.section-eyebrow,
+.album-year {
+    margin-bottom: 0.6rem;
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.section-title {
+    margin-bottom: 1rem;
+    color: var(--text);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+}
+
+.page-intro,
+.home-overview-intro {
+    max-width: 46rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.home-links {
+    display: flex;
+    gap: 0.75rem;
+    margin: 1.5rem 0 0.25rem;
+    flex-wrap: wrap;
+}
+
+.home-links a {
+    padding: 0.65rem 1rem;
+    color: var(--gold-soft);
+    font-size: 0.92rem;
+    font-weight: 750;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.home-links a:hover,
+.home-links a:focus-visible {
+    color: #1a1003;
+    border-color: var(--gold);
+    background: var(--gold);
+}
+
+.home-overview {
+    padding-bottom: 1rem;
+}
+
+.home-detail-section {
+    border-top: 1px solid rgba(72, 45, 105, 0.12);
+}
+
+.home-detail-section--discography {
+    background: linear-gradient(180deg, rgba(87, 52, 143, 0.12), transparent 80%);
+}
+
+.home-detail-section--contact {
+    background: linear-gradient(180deg, rgba(227, 189, 98, 0.08), transparent 80%);
+}
+
+.overview-card {
+    display: flex;
+    min-height: 17rem;
+    padding: 1.5rem;
+    color: var(--text);
+    text-decoration: none;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: 1px solid var(--border);
+    border-radius: 1.2rem;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.88), transparent 46%),
+        var(--surface);
+    box-shadow: 0 1rem 2.4rem rgba(45, 30, 60, 0.1);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.overview-card:hover,
+.overview-card:focus-visible {
+    color: var(--text);
+    border-color: var(--gold);
+    box-shadow: 0 1.25rem 2.8rem rgba(45, 30, 60, 0.18);
+    transform: translateY(-0.35rem);
+}
+
+.overview-card--parcours {
+    background-color: #f2ebff;
+}
+
+.overview-card--discography {
+    background-color: #edf2ff;
+}
+
+.overview-card--agenda {
+    background-color: #fff0f6;
+}
+
+.overview-card--contact {
+    background-color: #fff9e9;
+}
+
+.overview-card-number {
+    margin-bottom: auto;
+    color: rgba(112, 72, 11, 0.76);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.overview-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 750;
+}
+
+.overview-card p {
+    margin-bottom: 1.25rem;
+    color: var(--muted);
+}
+
+.overview-card-link {
+    color: var(--gold-soft);
+    font-size: 0.9rem;
+    font-weight: 750;
+}
+
+.artist-portrait {
+    overflow: hidden;
+    min-height: 26rem;
+    border: 1px solid var(--border);
+    border-radius: 1.2rem;
+    background: var(--surface-strong);
+}
+
+.artist-portrait img {
+    width: 100%;
+    height: 100%;
+    min-height: 26rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+.home-detail-section .lead {
+    color: var(--gold-soft);
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    font-weight: 500;
+}
+
+.home-detail-section p:not(.section-eyebrow):not(.album-year) {
+    color: var(--muted);
+}
+
+.artist-timeline {
+    display: grid;
+    gap: 1rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.artist-timeline li {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(72, 45, 105, 0.14);
+}
+
+.artist-timeline strong {
+    color: var(--gold);
+}
+
+.artist-timeline span {
+    color: var(--muted);
+}
+
 .disc-card {
-    background: linear-gradient(180deg, white, );
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    transition: transform .2s ease, box-shadow .2s ease;
+    overflow: hidden;
+    color: var(--text);
+    border: 1px solid rgba(72, 45, 105, 0.14);
+    border-radius: 1.2rem;
+    background: #fff;
+    box-shadow: 0 1rem 2.2rem rgba(45, 30, 60, 0.1);
 }
 
-button {
-    font-family: "Rock", sans-serif !important;
+.album-cover {
+    position: relative;
+    display: flex;
+    height: 13.75rem;
+    padding: 1.25rem;
+    overflow: hidden;
+    align-items: flex-end;
+    justify-content: flex-end;
+    isolation: isolate;
 }
 
-.disc-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+.album-cover::before {
+    position: absolute;
+    inset: 12% auto auto 12%;
+    width: 8rem;
+    height: 8rem;
+    border: 1px solid rgba(255, 255, 255, 0.56);
+    border-radius: 50%;
+    content: "";
+    opacity: 0.75;
+    transform: rotate(20deg);
 }
 
-/* Agenda table */
-.table thead th {
-    border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+.album-cover::after {
+    position: absolute;
+    right: -1rem;
+    bottom: -3rem;
+    width: 11rem;
+    height: 11rem;
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.16);
+    content: "";
+    transform: rotate(32deg);
 }
 
-.table tbody tr:hover {
-    background: rgba(217, 160, 0, 0.06);
+.album-cover span {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: -0.08em;
 }
 
-/* Footer / contact */
+.album-cover--one {
+    background: linear-gradient(135deg, #151e57, #7d43d4 48%, #e0c661);
+}
+
+.album-cover--two {
+    background: linear-gradient(135deg, #8c234a, #e8917a 47%, #43306c);
+}
+
+.album-cover--three {
+    background: linear-gradient(135deg, #262626, #7f5c20 52%, #f0d77a);
+}
+
+.album-cover--four {
+    background: linear-gradient(135deg, #101414, #395a57 52%, #a4d2bd);
+}
+
+.album-cover--five {
+    background: linear-gradient(135deg, #493172, #c16fba 47%, #f2c6cf);
+}
+
+.album-cover--six {
+    background: linear-gradient(135deg, #112d48, #16677e 48%, #b7dbdb);
+}
+
+.disc-card .card-body {
+    padding: 1.5rem;
+}
+
+.disc-card .card-title {
+    color: var(--text);
+    font-weight: 750;
+}
+
+.disc-card .card-text {
+    margin-bottom: 0;
+    color: var(--muted);
+}
+
+.agenda-panel,
+.contact-panel {
+    max-width: 52rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border: 1px solid var(--border);
+    border-radius: 1.2rem;
+    background:
+        linear-gradient(135deg, rgba(113, 67, 189, 0.11), transparent 58%),
+        var(--surface);
+    box-shadow: 0 1rem 2.4rem rgba(45, 30, 60, 0.1);
+}
+
+.agenda-panel h2,
+.agenda-panel h3,
+.contact-panel h2,
+.contact-panel h3 {
+    margin-bottom: 1rem;
+    color: var(--gold-soft);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 750;
+}
+
+.agenda-panel--tour {
+    position: relative;
+    display: flex;
+    min-height: 15rem;
+    max-width: none;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    isolation: isolate;
+    border-color: rgba(113, 67, 189, 0.28);
+    background:
+        radial-gradient(circle at 88% 20%, rgba(227, 189, 98, 0.36), transparent 13rem),
+        linear-gradient(125deg, #291846 0%, #523181 52%, #9672d4 100%);
+    box-shadow: 0 1.25rem 3rem rgba(59, 35, 94, 0.24);
+}
+
+.agenda-panel--tour::before,
+.agenda-panel--tour::after {
+    position: absolute;
+    z-index: -1;
+    width: 15rem;
+    height: 15rem;
+    content: "";
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+}
+
+.agenda-panel--tour::before {
+    right: 11rem;
+    bottom: -9rem;
+}
+
+.agenda-panel--tour::after {
+    top: -11rem;
+    right: -3rem;
+    width: 21rem;
+    height: 21rem;
+}
+
+.agenda-panel-content {
+    position: relative;
+    z-index: 1;
+    max-width: 37rem;
+}
+
+.agenda-panel--tour h3 {
+    color: #fff;
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    letter-spacing: -0.04em;
+}
+
+.agenda-panel.agenda-panel--tour p {
+    max-width: 31rem;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.agenda-panel--tour .agenda-status {
+    color: #fff6d9;
+    border-color: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.agenda-tour-mark {
+    position: relative;
+    z-index: 1;
+    display: block;
+    color: rgba(255, 255, 255, 0.94);
+    font-size: clamp(3rem, 9vw, 7.6rem);
+    font-weight: 900;
+    letter-spacing: -0.1em;
+    line-height: 0.75;
+    text-align: right;
+    text-shadow: 0 0.25rem 1.8rem rgba(37, 20, 65, 0.28);
+}
+
+.agenda-tour-mark small {
+    display: block;
+    margin-top: 0.65rem;
+    color: #e9cf8d;
+    font-size: 0.18em;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    line-height: 1;
+}
+
+.agenda-status {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    padding: 0.38rem 0.7rem;
+    color: var(--gold-soft);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(227, 189, 98, 0.09);
+}
+
+.agenda-grid {
+    max-width: none;
+    margin-top: 1.25rem;
+}
+
+.agenda-card {
+    position: relative;
+    display: flex;
+    min-height: 12.5rem;
+    height: 100%;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    overflow: hidden;
+    border: 1px solid rgba(72, 45, 105, 0.15);
+    border-radius: 1.15rem;
+    background:
+        linear-gradient(135deg, rgba(113, 67, 189, 0.08), transparent 54%),
+        rgba(255, 255, 255, 0.92);
+    box-shadow: 0 0.75rem 1.5rem rgba(51, 35, 71, 0.08);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.agenda-card::before {
+    position: absolute;
+    top: 1rem;
+    bottom: 1rem;
+    left: 0;
+    width: 0.28rem;
+    content: "";
+    border-radius: 0 999px 999px 0;
+    background: linear-gradient(var(--gold), var(--violet));
+}
+
+.agenda-card:hover {
+    transform: translateY(-0.28rem);
+    border-color: rgba(113, 67, 189, 0.34);
+    box-shadow: 0 1.2rem 2.1rem rgba(51, 35, 71, 0.15);
+}
+
+.agenda-date {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    flex: 0 0 5.2rem;
+    width: 5.2rem;
+    height: 5.2rem;
+    align-content: center;
+    justify-items: center;
+    color: #fff;
+    border-radius: 1rem;
+    background: linear-gradient(140deg, #7c4bca, #432369);
+    box-shadow: 0 0.7rem 1.25rem rgba(67, 35, 105, 0.27);
+    text-align: center;
+}
+
+.agenda-day {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.08em;
+    line-height: 0.8;
+}
+
+.agenda-month {
+    margin-top: 0.45rem;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1;
+}
+
+.agenda-event {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
+
+.agenda-kicker {
+    margin: 0 0 0.4rem !important;
+    color: var(--gold) !important;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.agenda-card h3 {
+    margin: 0 0 0.35rem;
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.agenda-card p {
+    margin: 0;
+}
+
+.agenda-city {
+    color: var(--text) !important;
+    font-weight: 700;
+}
+
+.agenda-details {
+    margin-top: 0.35rem !important;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.btn-agenda-booking {
+    display: inline-flex;
+    min-height: 2.35rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.9rem;
+    padding: 0.4rem 0.85rem;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 800;
+    border: 1px solid var(--gold);
+    border-radius: 0.65rem;
+    background: var(--gold);
+    box-shadow: 0 0.4rem 0.85rem rgba(140, 95, 22, 0.18);
+}
+
+.btn-agenda-booking:hover,
+.btn-agenda-booking:focus {
+    color: #fff;
+    border-color: var(--gold-soft);
+    background: var(--gold-soft);
+}
+
+.agenda-card-index {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    color: rgba(113, 67, 189, 0.16);
+    font-size: 1.65rem;
+    font-weight: 900;
+    letter-spacing: -0.08em;
+    line-height: 1;
+}
+
+.agenda-panel p,
+.contact-panel p {
+    color: var(--muted);
+}
+
+.contact-form .form-control {
+    min-height: 3rem;
+    color: var(--text);
+    border: 1px solid rgba(72, 45, 105, 0.28);
+    background: #fff;
+}
+
+.contact-form .form-control::placeholder {
+    color: #6b6475;
+}
+
+.contact-form .form-control:focus {
+    color: var(--text);
+    border-color: var(--gold);
+    background: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(140, 95, 22, 0.14);
+}
+
+.contact-form textarea.form-control {
+    min-height: 10rem;
+    resize: vertical;
+}
+
+.form-notice,
+.form-feedback {
+    margin: 0 0 1rem;
+    padding: 0.8rem 1rem;
+    color: var(--muted);
+    border: 1px solid rgba(72, 45, 105, 0.15);
+    border-radius: 0.8rem;
+    background: #f7f4fb;
+}
+
+.form-privacy {
+    margin: -0.35rem 0 1rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.booking-selection {
+    margin: 0 0 1rem;
+    padding: 0.8rem 1rem;
+    color: #4d2a79;
+    font-weight: 700;
+    border: 1px solid rgba(113, 67, 189, 0.24);
+    border-radius: 0.8rem;
+    background: rgba(113, 67, 189, 0.08);
+}
+
+.booking-selection[hidden] {
+    display: none;
+}
+
+.form-feedback {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    color: var(--muted);
+    border-color: rgba(72, 45, 105, 0.15);
+    background: #f7f4fb;
+}
+
+.form-feedback.is-success {
+    color: #276b31;
+    border-color: rgba(78, 150, 86, 0.35);
+    background: #edf8ee;
+}
+
+.form-feedback.is-error {
+    color: #9d1c3f;
+    border-color: rgba(184, 55, 94, 0.35);
+    background: #fff0f4;
+}
+
+.form-feedback.is-loading {
+    color: var(--gold-soft);
+    border-color: rgba(140, 95, 22, 0.28);
+    background: #fff8e8;
+}
+
+.contact-form[aria-busy="true"] .btn {
+    cursor: wait;
+}
+
+.form-feedback[hidden] {
+    display: none;
+}
+
+.btn-brand {
+    color: #fff;
+    border-color: var(--gold);
+    background: var(--gold);
+    font-weight: 750;
+}
+
+.btn-brand:hover,
+.btn-brand:focus {
+    color: #fff;
+    border-color: var(--gold-soft);
+    background: var(--gold-soft);
+}
+
+.btn-outline-brand {
+    color: var(--violet);
+    border-color: var(--violet);
+    background: #fff;
+    font-weight: 750;
+}
+
+.btn-outline-brand:hover,
+.btn-outline-brand:focus {
+    color: #fff;
+    border-color: var(--violet);
+    background: var(--violet);
+}
+
 footer {
     padding: 2rem 0;
+    color: rgba(37, 28, 50, 0.68);
     text-align: center;
-    color: rgba(255, 255, 255, 0.6);
 }
 
-/* Responsive tweaks */
-@media (max-width: 767px) {
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        max-height: calc(100vh - var(--navbar-height));
+        overflow-y: auto;
+    }
+
     .carousel-item img {
-        height: 45vh;
+        height: clamp(20rem, 78vw, 32.5rem);
     }
 
-    .member {
-        width: 48%;
+    .carousel-item:nth-child(1) img {
+        object-position: 68% center;
+    }
+
+    .carousel-item:nth-child(2) img {
+        object-position: 32% center;
     }
 }
 
-@media (max-width: 480px) {
-    .member {
+@media (max-width: 767.98px) {
+    .hero-caption {
+        width: min(82%, 28rem);
+    }
+
+    .hero-caption--right {
+        right: clamp(1.5rem, 7vw, 6rem);
+    }
+
+    .artist-portrait,
+    .artist-portrait img {
+        min-height: 20rem;
+    }
+
+    .agenda-panel--tour {
+        min-height: 16rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    section {
+        padding: 3rem 0;
+    }
+
+    .home-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem;
+    }
+
+    .home-links a {
+        padding-inline: 0.7rem;
+        text-align: center;
+    }
+
+    .hero-caption {
+        bottom: 2rem;
+        left: 1.25rem;
+        width: calc(100% - 2.5rem);
+    }
+
+    .hero-caption--right {
+        right: 1.25rem;
+        left: auto;
+    }
+
+    .artist-timeline li {
+        grid-template-columns: 3.5rem 1fr;
+        gap: 0.75rem;
+    }
+
+    .overview-card {
+        min-height: 14rem;
+    }
+
+    .agenda-panel--tour {
+        align-items: flex-start;
+        padding-bottom: 6.5rem;
+    }
+
+    .agenda-tour-mark {
+        position: absolute;
+        right: 1.25rem;
+        bottom: 1.15rem;
+        opacity: 0.42;
+    }
+
+    .agenda-card {
+        min-height: 11.5rem;
+        align-items: flex-start;
+    }
+
+    .agenda-date {
+        flex-basis: 4.65rem;
+        width: 4.65rem;
+        height: 4.65rem;
+    }
+
+    .agenda-day {
+        font-size: 1.75rem;
+    }
+
+    .agenda-card-index {
+        right: 0.75rem;
+    }
+
+    .btn-agenda-booking {
         width: 100%;
+        padding: 0.55rem 0.7rem;
+        line-height: 1.2;
+        text-wrap: balance;
     }
 
-    .carousel-item img {
-        height: 35vh;
+    .navbar-brand {
+        gap: 0.4rem;
+        font-size: 1rem;
+    }
+
+    .navbar-brand-visual {
+        flex-basis: 1.8rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 0.55rem;
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
