@@ -18,9 +18,9 @@
 
 ## Démo publique
 
-Le projet est prêt pour un déploiement sur GitHub Pages grâce au workflow présent dans [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml).
+La démo est en ligne : [garoody.github.io/lolo-k-portfolio](https://garoody.github.io/lolo-k-portfolio/).
 
-> Statut : à publier. Le lien de démonstration sera ajouté ici uniquement après vérification de la version publique de LoLo K.
+Le déploiement est assuré par GitHub Pages avec le workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml).
 
 ## Objectif du projet
 
@@ -53,16 +53,25 @@ J'ai assuré la conception et l'intégration du projet, de l'identité visuelle 
 - **CSS3** : variables de thème, `clamp()`, grilles flexibles, breakpoints et mode clair.
 - **Bootstrap 5.3.2** : grille, navbar responsive, carrousel et retours de validation.
 - **JavaScript vanilla** : fermeture du menu mobile, lien de navigation actif, validation et envoi asynchrone du formulaire.
-- **Performance** : dimensions d'images définies, chargement différé des visuels secondaires et préchargement du hero.
+- **Performance** : images WebP responsive avec fallback PNG, chargement différé des visuels secondaires et préchargement du hero.
 
 ## Qualité et vérifications
 
 - Capture desktop réelle réalisée à une largeur de 1440 px.
+- Capture mobile réelle réalisée sur une largeur de 500 px.
 - Vérification statique des ancres de navigation, des assets locaux et de l'absence d'anciennes références AC/DC/Gims.
 - Styles responsive prévus pour les seuils 992 px, 768 px et 576 px.
 - Vérifications d'accessibilité : langue du document, alternatives d'images, hiérarchie de titres, focus clavier, labels associés aux champs et réduction des animations.
 
-> Les scores Lighthouse seront ajoutés après un audit effectué sur l'URL publique, car ils dépendent du serveur et du réseau réels. Aucun score n'est affiché avant cette mesure.
+### Audit Lighthouse
+
+Audit automatisé exécuté sur la démo publique le 16 août 2026 :
+
+| Performance | Accessibilité | Bonnes pratiques | SEO |
+| --- | --- | --- | --- |
+| 97 | 100 | 100 | 100 |
+
+Le [rapport Lighthouse de cette exécution](https://github.com/Garoody/lolo-k-portfolio/actions/runs/31972608630) est conservé dans GitHub Actions. Les résultats peuvent légèrement varier d'un audit à l'autre selon les conditions de mesure.
 
 ## Lancer le projet localement
 
