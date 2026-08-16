@@ -1,0 +1,44 @@
+name: Audit Lighthouse
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Auditer la démo publique
+        run: |
+          npx --yes lighthouse@12 https://garoody.github.io/lolo-k-portfolio/ \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --output=json \
+            --output-path=lighthouse-report.json \
+            --chrome-flags="--headless --no-sandbox"
+
+      - name: Afficher les scores
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const report = JSON.parse(fs.readFileSync('lighthouse-report.json', 'utf8'));
+          const categories = report.categories;
+          const score = (name) => Math.round(categories[name].score * 100);
+          const summary = [
+            '## Audit Lighthouse',
+            '',
+            '| Performance | Accessibilité | Bonnes pratiques | SEO |',
+            '| --- | --- | --- | --- |',
+            `| ${score('performance')} | ${score('accessibility')} | ${score('best-practices')} | ${score('seo')} |`,
+          ].join('\n');
+          console.log(summary);
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${summary}\n`);
+          NODE
+
+      - name: Conserver le rapport Lighthouse
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: lighthouse-report.json
