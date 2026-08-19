@@ -18,7 +18,7 @@
 
 ## Démo publique
 
-La démo est en ligne : [garoody.github.io/lolo-k-portfolio](https://garoody.github.io/lolo-k-portfolio/).
+La démo est en ligne : [garoody.github.io/lolo-k-](https://garoody.github.io/lolo-k-/).
 
 Le déploiement est assuré par GitHub Pages avec le workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml).
 
@@ -71,7 +71,7 @@ Audit automatisé exécuté sur la démo publique le 16 août 2026 :
 | --- | --- | --- | --- |
 | 97 | 100 | 100 | 100 |
 
-Le [rapport Lighthouse de cette exécution](https://github.com/Garoody/lolo-k-portfolio/actions/runs/31972608630) est conservé dans GitHub Actions. Les résultats peuvent légèrement varier d'un audit à l'autre selon les conditions de mesure.
+Le [rapport Lighthouse de cette exécution](https://github.com/Garoody/lolo-k-/actions/runs/31972608630) est conservé dans GitHub Actions. Les résultats peuvent légèrement varier d'un audit à l'autre selon les conditions de mesure.
 
 ## Lancer le projet localement
 

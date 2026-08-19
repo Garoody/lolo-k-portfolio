@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Auditer la démo publique
         run: |
-          npx --yes lighthouse@12 https://garoody.github.io/lolo-k-portfolio/ \
+          npx --yes lighthouse@12 https://garoody.github.io/lolo-k-/ \
             --only-categories=performance,accessibility,best-practices,seo \
             --output=json \
             --output-path=lighthouse-report.json \
